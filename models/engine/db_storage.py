@@ -46,8 +46,8 @@ class DBStorage:
                 key = "{}.{}".format(type(elem).__name__, elem.id)
                 dic[key] = elem
         else:
-            lista = [State, City, User, Place, Review, Amenity]
-            for clase in lista:
+            class_list = [State, City, User, Place, Review, Amenity]
+            for clase in class_list:
                 query = self.__session.query(clase)
                 for elem in query:
                     key = "{}.{}".format(type(elem).__name__, elem.id)
@@ -68,7 +68,7 @@ class DBStorage:
         """delete an element in the table
         """
         if obj:
-            self.session.delete(obj)
+            self.__session.delete(obj)
 
     def reload(self):
         """configuration
